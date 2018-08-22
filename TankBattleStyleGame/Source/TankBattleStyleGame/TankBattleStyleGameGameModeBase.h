@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "Tank.h"
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
 #include "TankBattleStyleGameGameModeBase.generated.h"
@@ -14,7 +15,5 @@ class TANKBATTLESTYLEGAME_API ATankBattleStyleGameGameModeBase : public AGameMod
 {
 	GENERATED_BODY()
 	
-	
-	
-	
+
 };
