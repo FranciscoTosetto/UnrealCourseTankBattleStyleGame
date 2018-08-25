@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "Engine/World.h"
 #include "Tank.h"
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
@@ -21,9 +22,25 @@ public:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 
+
 private:
 	//start the tank moving the barrel so that a shot would hit where
 	//the crosshair intersects the world
 	void AimTowardsCrosshair();
-	
+
+	/* return an OUT parameter, true if hit landscape.
+	out parameters passes references*/
+	bool GetSightRayHitLocation(FVector &OutHitLocation) const;
+
+	bool GetLookDirection(FVector2D &ScreenLocation, FVector &LookDirection) const;
+
+	bool GetLookVectorHitLocation(FVector LookDirection, FVector &OutHitLocation) const;
+
+	UPROPERTY(EditAnywhere)
+		float CrossHairXLocation = 0.5;
+	UPROPERTY(EditAnywhere)
+		float CrossHairYLocation = 0.35;
+	UPROPERTY(EditAnywhere)
+		float LineTraceRange = 500000;
+
 };

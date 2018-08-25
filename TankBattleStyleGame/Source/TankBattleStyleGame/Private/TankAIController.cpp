@@ -1,6 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
 #include "TankAIController.h"
+#include "Tank.h"
+
+
 
 
 
@@ -21,6 +23,19 @@ void ATankAIController::BeginPlay()
 
 
 	UE_LOG(LogTemp, Warning, TEXT("AIController BeginPlay"));
+}
+
+// Called every frame
+void ATankAIController::Tick(float DeltaTime)
+{
+	if (GetPlayerTank())
+	{
+		// TODO move towards player
+		GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
+
+		// Fire if at the crosshair
+	}
+	Super::Tick(DeltaTime);
 }
 
 ATank * ATankAIController::GetControlledTank() const
