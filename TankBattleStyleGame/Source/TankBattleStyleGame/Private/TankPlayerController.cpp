@@ -1,6 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+
 #include "TankPlayerController.h"
+#include "Tank.h"
+#include "TankBattleStyleGame.h"
 
 
 void ATankPlayerController::BeginPlay()
@@ -25,8 +28,8 @@ void ATankPlayerController::BeginPlay()
 // Called every frame
 void ATankPlayerController::Tick(float DeltaTime)
 {
-	AimTowardsCrosshair();
 	Super::Tick(DeltaTime);
+	AimTowardsCrosshair();
 }
 
 
@@ -65,7 +68,7 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector & OutHitLocation) con
 	if (GetLookDirection(ScreenLocation, LookDirection))
 	{
 
-		UE_LOG(LogTemp, Warning, TEXT("Aim Direction: %s"), *LookDirection.ToString());
+		//UE_LOG(LogTemp, Warning, TEXT("Aim Direction: %s"), *LookDirection.ToString());
 		// line trace along that LookDirection, a see hit (up to max range)
 		GetLookVectorHitLocation(LookDirection, OutHitLocation);
 	}

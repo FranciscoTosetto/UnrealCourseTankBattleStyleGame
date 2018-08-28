@@ -3,11 +3,12 @@
 #pragma once
 
 #include "TankPlayerController.h"
-#include "Tank.h"
 #include "CoreMinimal.h"
 #include "AIController.h"
 #include "TankAIController.generated.h"
 
+//forward declarations
+class ATank;
 /**
  * 
  */
@@ -15,8 +16,6 @@ UCLASS()
 class TANKBATTLESTYLEGAME_API ATankAIController : public AAIController
 {
 	GENERATED_BODY()
-
-	void AimAt(FVector OutHitLocation);
 
 public:
 	virtual void BeginPlay() override;
